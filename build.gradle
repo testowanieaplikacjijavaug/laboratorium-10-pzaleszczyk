@@ -5,7 +5,6 @@
 plugins {
     id 'java'
     id 'maven-publish'
-    id 'jacoco'
 }
 
 repositories {
@@ -36,9 +35,9 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-jacocoTestReport {
-    reports {
-        xml.enabled = true
-        html.enabled = true
+test {
+    useJUnitPlatform {
+        excludeTags 'slow'
+        includeEngines 'junit-jupiter', 'junit-vintage'
     }
 }
