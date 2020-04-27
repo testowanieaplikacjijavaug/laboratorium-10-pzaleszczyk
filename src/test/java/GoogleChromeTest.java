@@ -20,7 +20,13 @@ public class GoogleChromeTest {
 	
 	@BeforeAll
     public static void setUpDriver() {
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
+		String os = System.getProperty("os.name");
+		if(os.contentEquals("Windows 10")) {
+			System.out.println("Windows");
+			System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+		}
+		else
+			System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setHeadless(true);
         driver = new ChromeDriver(chromeOptions);
@@ -40,7 +46,8 @@ public class GoogleChromeTest {
 
 	@Test
 	public void testTitlePage() {
-    	assertEquals("DuckDuckGo — Privacy, simplified.", driver.getTitle());
+		driver.get("https://mfi.ug.edu.pl/");
+    	assertEquals("Wydział Matematyki, Fizyki i Informatyki | Wydział Matematyki, Fizyki i Informatyki", driver.getTitle());
 	}
 
 	@Test

@@ -16,13 +16,19 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class FindTest {
 	
-	//PrzykÅ‚ady znajdowania elementÃ³w na stronie www bez elementÃ³w xpath
+	//Przykﾃ�窶啾dy znajdowania elementﾃδｳw na stronie www bez elementﾃδｳw xpath
 	
 	private static WebDriver driver;
 
 	@BeforeAll
 	public static void setUpDriver(){
-		System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
+		String os = System.getProperty("os.name");
+		if(os.contentEquals("Windows 10")) {
+			System.out.println("Windows");
+			System.setProperty("webdriver.gecko.driver", "resources/geckodriver.exe");
+		}
+		else
+			System.setProperty("webdriver.gecko.driver", "resources/geckodriver");
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setHeadless(true);
         driver = new FirefoxDriver(firefoxOptions);

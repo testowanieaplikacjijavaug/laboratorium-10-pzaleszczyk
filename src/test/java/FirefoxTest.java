@@ -19,7 +19,13 @@ public class FirefoxTest {
 
 	@BeforeAll
 	public static void setUpDriver(){
-		System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
+		String os = System.getProperty("os.name");
+		if(os.contentEquals("Windows 10")) {
+			System.out.println("Windows");
+			System.setProperty("webdriver.gecko.driver", "resources/geckodriver.exe");
+		}
+		else
+			System.setProperty("webdriver.gecko.driver", "resources/geckodriver");
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setHeadless(true);
         driver = new FirefoxDriver(firefoxOptions);
@@ -39,7 +45,8 @@ public class FirefoxTest {
 
 	@Test
 	public void testTitlePage() {
-    	assertEquals("DuckDuckGo — Privacy, simplified.", driver.getTitle());
+		driver.get("https://mfi.ug.edu.pl/");
+    	assertEquals("Wydział Matematyki, Fizyki i Informatyki | Wydział Matematyki, Fizyki i Informatyki", driver.getTitle());
 	}
 
 	@Test
