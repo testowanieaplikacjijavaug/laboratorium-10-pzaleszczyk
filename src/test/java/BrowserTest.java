@@ -46,6 +46,7 @@ public class BrowserTest {
 		driver.findElement(
 				By.xpath("html/body/div[6]/div[3]/div[8]/div[1]/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div[1]/a"))
 				.click(); 
+		assertNotNull(null);
 
 	}
 
