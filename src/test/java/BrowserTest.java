@@ -91,9 +91,9 @@ public class BrowserTest {
 		driver.findElement(By.id("search_button_homepage")).click();
 		driver.findElement(By.cssSelector("#duckbar_static > li:nth-child(2) > a")).click();
 
-		String name = driver.findElement(By.xpath("//*[@id=\"zci-images\"]/div/div[2]/div/div[1]/a/span[2]"))
+		String name = driver.findElement(By.xpath("//*[@id=\"zci-images\"]/div/div[2]/div/div[3]/a/span[2]"))
 				.getText();
-		assertEquals("zh.pconline.com.cn", name);
+		assertEquals("ebifuu.deviantart.com", name);
 	}
 	
 	@Test
