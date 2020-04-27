@@ -20,7 +20,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-public class BrowserTest {
+public class DuckTest {
 
 	private static WebDriver driver;
 
