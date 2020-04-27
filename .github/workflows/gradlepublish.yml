@@ -26,4 +26,4 @@ jobs:
           chmod 755 /home/runner/work/laboratorium-10-pzaleszczyk/laboratorium-10-pzaleszczyk/resources/geckodriver
           chmod 755 /home/runner/work/laboratorium-10-pzaleszczyk/laboratorium-10-pzaleszczyk/resources/chromedriver
     - name: Test
-      run: ./gradlew test -i
+      run: ./gradlew test
