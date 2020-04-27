@@ -72,7 +72,7 @@ public class BrowserTest {
 		driver.findElement(By.id("search_form_input_homepage")).sendKeys("mfi.ug.edu.pl");
 		driver.findElement(By.id("search_button_homepage")).sendKeys(Keys.RETURN);
 		String name = driver.findElement(By.id("r1-0")).getText().substring(0,41);
-		assertEquals("Wydział Matematyki, Fizyki i Informatyki", name);
+		assertEquals("Wydział Matematyki, Fizyki i Informatyki ", name);
 	}
 
 	@Test
@@ -84,6 +84,25 @@ public class BrowserTest {
 			assertEquals("https://mfi.ug.edu.pl/", driver.getCurrentUrl());
 		});
 	}
+	
+	@Test
+	public void byCssSelector() {
+		driver.findElement(By.id("search_form_input_homepage")).sendKeys("afsddfs");
+		driver.findElement(By.id("search_button_homepage")).click();
+		driver.findElement(By.cssSelector("#duckbar_static > li:nth-child(2) > a")).click();
 
-
+		String name = driver.findElement(By.xpath("//*[@id=\"zci-images\"]/div/div[2]/div/div[1]/a/span[2]"))
+				.getText();
+		assertEquals("zh.pconline.com.cn", name);
+	}
+	
+	@Test
+	public void byClassName() {
+		driver.findElement(By.id("search_form_input_homepage")).sendKeys("afsddfs");
+		driver.findElement(By.id("search_button_homepage")).click();
+		String name = driver.findElement(By.className("result__url__full")).getText();
+		
+		assertEquals("/questions/504006/algorithm-in-ieee-journal", name);
+	}
+	
 }
