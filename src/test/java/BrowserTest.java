@@ -32,7 +32,7 @@ public class BrowserTest {
 
 	@BeforeEach
 	public void setUp() throws Exception {
-    	driver.get("https://www.google.pl");
+    	driver.get("https://duckduckgo.com/");
 	}
 
 	@AfterAll
@@ -41,16 +41,21 @@ public class BrowserTest {
 	}
 	
 	@Test
-	public void find() {
-		WebElement search_bar = driver.findElement(By.id("searchform"));
-		search_bar.sendKeys("inf ug edu studinfo");
-		driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[2]/div[1]/div[3]/center/input[1]"))
-				.click();
-		driver.findElement(
-				By.xpath("html/body/div[6]/div[3]/div[8]/div[1]/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div[1]/a"))
-				.click(); 
-		assertNotNull(null);
-
+	public void findFirst() {
+		driver.findElement(By.id("search_form_input_homepage")).sendKeys("mfi.ug.edu.pl");
+        driver.findElement(By.id("search_button_homepage")).click();
+        driver.findElement(By.id("r1-0")).click(); // pierwszy element
+        String title1 = driver.getCurrentUrl();
+        assertEquals("https://mfi.ug.edu.pl/", title3);
+	}
+	
+	@Test
+	public void findThird() {
+		driver.findElement(By.id("search_form_input_homepage")).sendKeys("mfi.ug.edu.pl");
+        driver.findElement(By.id("search_button_homepage")).click();
+        driver.findElement(By.id("r1-2")).sendKeys(Keys.ENTER); // trzeci element
+        String title3 = driver.getCurrentUrl();
+        assertEquals("https://mat.ug.edu.pl/pracownicy/dr-maciej-mroczkowski/", title3);
 	}
 
 	@Test
