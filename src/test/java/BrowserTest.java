@@ -1,5 +1,6 @@
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.concurrent.TimeUnit;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,7 +18,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class BrowserTest {
 	
-	//PrzykÅ‚ady znajdowania elementÃ³w na stronie www bez elementÃ³w xpath
+	//Przykﾃ�窶啾dy znajdowania elementﾃδｳw na stronie www bez elementﾃδｳw xpath
 	
 	private static WebDriver driver;
 
@@ -44,18 +46,16 @@ public class BrowserTest {
 	public void findFirst() {
 		driver.findElement(By.id("search_form_input_homepage")).sendKeys("mfi.ug.edu.pl");
         driver.findElement(By.id("search_button_homepage")).click();
-        driver.findElement(By.id("r1-0")).click(); // pierwszy element
-        String title1 = driver.getCurrentUrl();
-        assertEquals("https://mfi.ug.edu.pl/", title3);
+        driver.findElement(By.id("r1-0")).click();
+        assertEquals("https://mfi.ug.edu.pl/", driver.getCurrentUrl());
 	}
 	
 	@Test
 	public void findThird() {
 		driver.findElement(By.id("search_form_input_homepage")).sendKeys("mfi.ug.edu.pl");
         driver.findElement(By.id("search_button_homepage")).click();
-        driver.findElement(By.id("r1-2")).sendKeys(Keys.ENTER); // trzeci element
-        String title3 = driver.getCurrentUrl();
-        assertEquals("https://mat.ug.edu.pl/pracownicy/dr-maciej-mroczkowski/", title3);
+        driver.findElement(By.id("r1-2")).sendKeys(Keys.ENTER);
+        assertEquals("https://mat.ug.edu.pl/pracownicy/dr-maciej-mroczkowski/", driver.getCurrentUrl());
 	}
 
 	@Test
