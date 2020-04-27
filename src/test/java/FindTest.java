@@ -1,6 +1,6 @@
 
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +15,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class FindTest {
 	
-	//Przykłady znajdowania elementów na stronie www bez elementów xpath
+	//PrzykÅ‚ady znajdowania elementÃ³w na stronie www bez elementÃ³w xpath
 	
 	private static WebDriver driver;
 

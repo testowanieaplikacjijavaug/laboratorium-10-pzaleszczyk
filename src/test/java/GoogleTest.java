@@ -1,4 +1,6 @@
-import static org.junit.Assert.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.concurrent.TimeUnit;
 
@@ -9,8 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GoogleTest {
 	
@@ -36,7 +36,7 @@ public class GoogleTest {
 
 	@Test
 	public void testTitlePage() {
-    	assertEquals("DuckDuckGo — Privacy, simplified.", driver.getTitle());
+    	assertEquals("DuckDuckGo â€” Privacy, simplified.", driver.getTitle());
 	}
 
 	@Test

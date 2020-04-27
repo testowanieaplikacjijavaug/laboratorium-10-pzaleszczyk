@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class XPathTest {
 
-        //Przyk?ady znajdowania elementów na stronie www z wykorzystaniem xpath
+        //Przyk?ady znajdowania elementÃ³w na stronie www z wykorzystaniem xpath
 
         private static WebDriver driver;
 
