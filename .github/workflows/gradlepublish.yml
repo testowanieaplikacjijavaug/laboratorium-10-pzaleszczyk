@@ -23,7 +23,7 @@ jobs:
     - name: Grant execute permission for gradlew
       run: |
           chmod +x gradlew
-          chmod 755 /home/runner/work/selen/selen/resources/geckodriver
-          chmod 755 /home/runner/work/selen/selen/resources/chromedriver
+          chmod 755 /home/runner/work/laboratorium-10-pzaleszczyk/laboratorium-10-pzaleszczyk/resources/geckodriver
+          chmod 755 /home/runner/work/laboratorium-10-pzaleszczyk/laboratorium-10-pzaleszczyk/resources/chromedriver
     - name: Test
       run: ./gradlew test -i
