@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -20,12 +21,14 @@ public class XPathTest {
         private static WebDriver driver;
 
         @BeforeAll
-        public static void setUpDriver(){
-            System.setProperty("webdriver.gecko.driver", "resources/geckodriver");
-            driver = new FirefoxDriver();
-            // Implicity wait -> max czas na znalezienie elementu na stronie
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        }
+	public static void setUpDriver(){
+		System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.setHeadless(true);
+        driver = new FirefoxDriver(firefoxOptions);
+        // Implicity wait -> max czas na znalezienie elementu na stronie
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
 
         @BeforeEach
         public void setUp() throws Exception {
